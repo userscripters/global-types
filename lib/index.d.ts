@@ -6,6 +6,7 @@ declare global {
         UserScripters?: {
             Helpers?: {
                 API?: {},
+                Scraping?: {},
                 Stacks?: {};
             },
             Userscripts?: {
