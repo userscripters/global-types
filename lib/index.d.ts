@@ -13,7 +13,7 @@ declare global {
             };
         };
 
-        declare Store?: typeof import("@userscripters/storage");
+        Store?: typeof import("@userscripters/storage");
     }
 }
 

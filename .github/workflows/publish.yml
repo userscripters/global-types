@@ -11,7 +11,7 @@ jobs:
             - uses: actions/checkout@v2
             - uses: actions/setup-node@v2
               with:
-                  node-version: 12
+                  node-version: 14
                   registry-url: https://npm.pkg.github.com
                   scope: "@${{github.repository_owner}}"
             - run: |
@@ -39,7 +39,8 @@ jobs:
                   NODE_AUTH_TOKEN: ${{github.token}}
             - run: |
                   npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
-                  declare temp_npmrc="/home/runner/work/stackexchange-global-types/stackexchange-global-types/.npmrc"
+                  declare repo_name=$(echo "${{github.repository}}" | cut -d '/' -f 2)
+                  declare temp_npmrc="/home/runner/work/$repo_name/$repo_name/.npmrc"
                   truncate $temp_npmrc -s 0
                   echo "@${{github.repository_owner}}:registry=https://registry.npmjs.org" >> $temp_npmrc
                   npm publish --access public
