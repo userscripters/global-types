@@ -16,6 +16,7 @@ jobs:
                   scope: "@${{github.repository_owner}}"
             - run: npm install
             - run: |
+                  npm config set registry=https://npm.pkg.github.com
                   npm config set //npm.pkg.github.com/:_authToken=$NODE_AUTH_TOKEN
                   npm publish
               env:
@@ -34,6 +35,7 @@ jobs:
               env:
                   NODE_AUTH_TOKEN: ${{github.token}}
             - run: |
+                  npm config set registry=https://registry.npmjs.org
                   npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
                   npm publish --access public
               env:
