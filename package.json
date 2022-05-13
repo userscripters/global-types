@@ -1,10 +1,11 @@
 {
     "name": "@userscripters/global-types",
     "description": "Type definitions for global UserScripters objects",
-    "version": "0.2.5",
+    "version": "0.2.6",
     "scripts": {
         "test": "tsd",
         "readme": "generate-readme",
+        "preversion": "npm run test",
         "postversion": "bash ./scripts/postversion.sh",
         "stackapps": "bash ./scripts/stackapps.sh"
     },
