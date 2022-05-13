@@ -1,5 +1,5 @@
 import { expectType } from "tsd";
-import { Userscript, type Configurer } from "../lib/configurer";
+import { Userscript, type Configurer, type UserscriptOptionItem } from "../lib/configurer";
 import "../lib/index";
 
 const configurer = window.UserScripters?.Userscripts?.Configurer;
@@ -10,9 +10,16 @@ const userscript = configurer?.register("test-script");
 
 expectType<Userscript<any> | undefined>(userscript);
 
+const item: UserscriptOptionItem = {
+    disabled: true,
+    label: "Test Item",
+    value: "test value"
+};
+
 expectType<Userscript<any>>(userscript!.option("test-option", {
     desc: "Option for tsd testing",
     def: "ok",
+    items: [item],
     type: "text"
 }));
 

@@ -2,7 +2,17 @@ import Store, { type AsyncStorage } from "@userscripters/storage";
 
 export type UserscriptOptionType = "text" | "select" | "checkbox";
 
+export interface UserscriptOptionItem {
+    disabled?: boolean;
+    id?: string;
+    label: string;
+    name?: string;
+    selected?: boolean;
+    value?: string;
+}
+
 export interface UserscriptOption {
+    items?: UserscriptOptionItem[];
     name: string;
     desc: string;
     def?: unknown;
