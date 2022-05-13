@@ -10,7 +10,11 @@ const userscript = configurer?.register("test-script");
 
 expectType<Userscript<any> | undefined>(userscript);
 
-expectType<Userscript<any>>(userscript!.option("test-option", "Option for tsd testing", "ok"));
+expectType<Userscript<any>>(userscript!.option("test-option", {
+    desc: "Option for tsd testing",
+    def: "ok",
+    type: "text"
+}));
 
 expectType<Promise<string | undefined>>(userscript!.load("test-option"));
 expectType<Promise<void>>(userscript!.save("test-option", "not ok"));

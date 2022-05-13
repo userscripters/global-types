@@ -1,11 +1,13 @@
 import Store, { type AsyncStorage } from "@userscripters/storage";
 
+export type UserscriptOptionType = "text" | "select" | "checkbox";
+
 export interface UserscriptOption {
     name: string;
     desc: string;
     def?: unknown;
     type: UserscriptOptionType;
-};
+}
 
 export declare class Userscript<T extends Storage | AsyncStorage> extends Store {
     option(name: string, config: Omit<UserscriptOption, "name">): Userscript<T>;

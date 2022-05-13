@@ -4,7 +4,7 @@ library
 
 
 <!-- thumbnail:  -->
-<!-- version: 0.2.4 -->
+<!-- version: 0.2.5 -->
 <!-- tag: library -->
 <!-- excerpt: UserScripters global types is a type definitions package for helpers common to the UserScripters namespace -->
 
@@ -22,7 +22,7 @@ The script is licensed under the [GPL-3.0-or-later](https://spdx.org/licenses/GP
 
 ### Download
 
-Latest version: 0.2.4
+Latest version: 0.2.5
 
 [Install](https://www.npmjs.com/package/@userscripters/global-types)
 
@@ -38,7 +38,7 @@ Version number means "last tested on":
 
 | Version    | Description |
 | ---------- | ----------- |
-| 0.2.4 |             |
+| 0.2.5 |             |
 
 ## Contact
 
