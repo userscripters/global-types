@@ -1,10 +1,12 @@
 import { expectType } from "tsd";
-import { Userscript, type Configurer, type UserscriptOptionItem } from "../lib/configurer";
+import { Configurer, Userscript, type UserscriptOptionItem } from "../lib/configurer";
 import "../lib/index";
 
 const configurer = window.UserScripters?.Userscripts?.Configurer;
 
 expectType<Configurer<any> | undefined>(configurer);
+
+expectType<Promise<Configurer<any>>>(configurer!.render());
 
 const userscript = configurer?.register("test-script");
 

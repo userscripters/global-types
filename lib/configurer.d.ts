@@ -21,12 +21,13 @@ export interface UserscriptOption {
 
 export declare class Userscript<T extends Storage | AsyncStorage> extends Store {
     option(name: string, config: Omit<UserscriptOption, "name">): Userscript<T>;
+    render(): Promise<HTMLElement>;
 }
 
 export declare class Configurer<T extends Storage | AsyncStorage> {
     hide(): Configurer<T>;
     register(name: string): Userscript<T>;
-    render(): Configurer<T>;
+    render(): Promise<Configurer<T>>;
     show(): Configurer<T>;
     unregister(name: string): Userscript<T> | undefined;
 }
