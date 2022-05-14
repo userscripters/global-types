@@ -16,6 +16,7 @@ export interface UserscriptOption {
     name: string;
     desc: string;
     def?: unknown;
+    title?: string;
     type: UserscriptOptionType;
 }
 
