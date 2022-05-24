@@ -26,6 +26,7 @@ export declare class Userscript<T extends Storage | AsyncStorage> extends Store 
 }
 
 export declare class Configurer<T extends Storage | AsyncStorage> {
+    get(name: string): Userscript<T> | undefined;
     hide(): Configurer<T>;
     register(name: string): Userscript<T>;
     render(): Promise<Configurer<T>>;
