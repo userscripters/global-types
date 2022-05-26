@@ -20,8 +20,12 @@ export interface UserscriptOption {
     type: UserscriptOptionType;
 }
 
+export interface UserscriptToggleOption extends UserscriptOption {
+    direction?: "left" | "right";
+}
+
 export declare class Userscript<T extends Storage | AsyncStorage> extends Store {
-    option(name: string, config: Omit<UserscriptOption, "name">): Userscript<T>;
+    option<U extends UserscriptOption>(name: string, config: Omit<U, "name">): Userscript<T>;
     render(): Promise<HTMLElement>;
 }
 
