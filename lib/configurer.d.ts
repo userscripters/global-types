@@ -26,6 +26,7 @@ export interface UserscriptToggleOption extends UserscriptOption {
 
 export declare class Userscript<T extends Storage | AsyncStorage> extends Store {
     option<U extends UserscriptOption>(name: string, config: Omit<U, "name">): Userscript<T>;
+    options<U extends Record<string, Omit<UserScripters.UserscriptOption, "name">>>(configs: U): Userscript<T>;
     render(): Promise<HTMLElement>;
 }
 

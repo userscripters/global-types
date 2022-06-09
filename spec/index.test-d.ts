@@ -25,6 +25,15 @@ expectType<Userscript<any>>(userscript!.option("test-option", {
     type: "text"
 }));
 
+expectType<Userscript<any>>(userscript!.options({
+    option1: {
+        desc: "Option for tsd testing",
+        def: "ok",
+        items: [item],
+        type: "text"
+    }
+}));
+
 expectType<Promise<string | undefined>>(userscript!.load("test-option"));
 expectType<Promise<void>>(userscript!.save("test-option", "not ok"));
 expectType<Promise<void>>(userscript!.remove("test-option"));
