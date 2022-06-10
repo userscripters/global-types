@@ -1,5 +1,5 @@
 
-import { Configurer, Userscript, UserscriptOption, UserscriptToggleOption } from "./configurer";
+import { Configurer, Userscript, UserscriptOption, UserscriptOptionConfig, UserscriptToggleOption } from "./configurer";
 
 declare global {
     interface Window {
@@ -19,7 +19,6 @@ declare global {
 }
 
 export { AsyncStorage, default as Store } from "@userscripters/storage";
-export { Configurer, Userscript, UserscriptOption, UserscriptToggleOption };
-
+export { Configurer, Userscript, UserscriptOption, UserscriptToggleOption, UserscriptOptionConfig };
 
 export as namespace UserScripters;
