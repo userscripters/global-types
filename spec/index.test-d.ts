@@ -30,8 +30,9 @@ expectType<Userscript<any>>(userscript!.options({
         desc: "Option for tsd testing",
         def: "ok",
         items: [item],
-        type: "text"
     }
+}, {
+    type: "text"
 }));
 
 expectType<Promise<string | undefined>>(userscript!.load("test-option"));
