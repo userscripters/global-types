@@ -26,13 +26,18 @@ export interface UserscriptToggleOption extends UserscriptOption {
     direction?: "left" | "right";
 }
 
+export type UserscriptOptionConfigRecord<
+    U extends Record<string, UserscriptOptionConfig>,
+    V extends Partial<UserscriptOptionConfig>
+    > = { [P in keyof U]: Omit<U[P], keyof V> & { [R in Extract<keyof V, keyof U[P]>]?: U[P][R] } };
+
 export declare class Userscript<T extends Storage | AsyncStorage> extends Store {
     option<U extends UserscriptOptionConfig>(name: string, config: U): Userscript<T>;
     options<U extends Record<string, UserscriptOptionConfig>>(configs: U): Userscript<T>;
     options<
         U extends Record<string, UserscriptOptionConfig>,
         V extends Partial<UserscriptOptionConfig>
-        >(configs: { [P in keyof U]: Omit<U[P], keyof V> & { [R in Extract<keyof V, keyof U[P]>]?: U[P][R] } }, common: V): Userscript<T>;
+        >(configs: UserscriptOptionConfigRecord<U, V>, common: V): Userscript<T>;
     render(): Promise<HTMLElement>;
 }
 
