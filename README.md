@@ -6,7 +6,7 @@
 | Name | @userscripters/global-types |
 | Description | Type definitions for global UserScripters objects |
 | License | [GPL-3.0-or-later](https://spdx.org/licenses/GPL-3.0-or-later) |
-| Version | 0.3.1 |
+| Version | 0.4.0 |
 
 
 # Support
