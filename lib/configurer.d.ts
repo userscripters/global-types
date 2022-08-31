@@ -40,6 +40,7 @@ export declare class UserscriptOption<
 }
 
 export declare class Userscript<T extends Storage | AsyncStorage> extends Store {
+    get<U extends UserscriptOptionConfig>(name: string): UserscriptOption<T, U> | undefined;
     option<U extends UserscriptOptionConfig>(name: string, config: U): Userscript<T>;
     options<U extends Record<string, UserscriptOptionConfig>>(configs: U): Userscript<T>;
     options<
