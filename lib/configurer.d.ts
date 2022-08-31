@@ -11,9 +11,8 @@ export interface UserscriptOptionItem {
     value?: string;
 }
 
-export interface UserscriptOption {
+export interface UserscriptOptionConfig {
     items?: UserscriptOptionItem[];
-    name: string;
     desc: string;
     def?: unknown;
     disabledWhen?: Record<string, unknown>;
@@ -21,9 +20,7 @@ export interface UserscriptOption {
     type: UserscriptOptionType;
 }
 
-export type UserscriptOptionConfig = Omit<UserscriptOption, "name">;
-
-export interface UserscriptToggleOption extends UserscriptOption {
+export interface UserscriptToggleOption extends UserscriptOptionConfig {
     direction?: "left" | "right";
 }
 
