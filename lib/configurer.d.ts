@@ -29,6 +29,16 @@ export type UserscriptOptionConfigRecord<
     V extends Partial<UserscriptOptionConfig>
     > = { [P in keyof U]: Omit<U[P], keyof V> & { [R in Extract<keyof V, keyof U[P]>]?: U[P][R] } };
 
+export declare class UserscriptOption<
+    T extends Storage | AsyncStorage,
+    U extends UserScripters.UserscriptOptionConfig,
+    > {
+    container?: HTMLElement;
+    name: string;
+    render(): Promise<HTMLElement>;
+    shouldDisable(): Promise<boolean>;
+}
+
 export declare class Userscript<T extends Storage | AsyncStorage> extends Store {
     option<U extends UserscriptOptionConfig>(name: string, config: U): Userscript<T>;
     options<U extends Record<string, UserscriptOptionConfig>>(configs: U): Userscript<T>;
