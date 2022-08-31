@@ -21,6 +21,9 @@ const item: UserscriptOptionItem = {
 expectType<Userscript<any>>(userscript!.option("test-option", {
     desc: "Option for tsd testing",
     def: "ok",
+    disabledWhen: {
+        option2: false,
+    },
     items: [item],
     type: "text"
 }));
