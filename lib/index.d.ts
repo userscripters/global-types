@@ -26,8 +26,11 @@ declare global {
         };
     }
 
+    interface ConfigurerLoadEvent extends CustomEvent { }
+
     interface GlobalEventHandlersEventMap {
         "userscript-configurer-change": ConfigurerChangeEvent;
+        "userscript-configurer-load": ConfigurerLoadEvent;
     }
 }
 

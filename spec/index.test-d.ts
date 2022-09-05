@@ -50,3 +50,7 @@ window.addEventListener("userscript-configurer-change", (event) => {
     expectType<string>(event.detail.script);
     expectType<string | boolean | string[]>(event.detail.value);
 });
+
+window.addEventListener("userscript-configurer-load", (event) => {
+    expectType<ConfigurerLoadEvent>(event);
+});
