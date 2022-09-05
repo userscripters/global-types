@@ -1,7 +1,7 @@
 {
     "name": "@userscripters/global-types",
     "description": "Type definitions for global UserScripters objects",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "scripts": {
         "test": "tsd",
         "readme": "generate-readme",
