@@ -16,6 +16,19 @@ declare global {
 
         Store?: typeof import("@userscripters/storage");
     }
+
+    interface ConfigurerChangeEvent extends CustomEvent {
+        detail: {
+            name: string;
+            oldValue: unknown;
+            script: string;
+            value: string | boolean | string[];
+        };
+    }
+
+    interface GlobalEventHandlersEventMap {
+        "userscript-configurer-change": ConfigurerChangeEvent;
+    }
 }
 
 export { AsyncStorage, default as Store } from "@userscripters/storage";

@@ -42,3 +42,11 @@ expectType<Promise<string | undefined>>(userscript!.load("test-option"));
 expectType<Promise<void>>(userscript!.save("test-option", "not ok"));
 expectType<Promise<void>>(userscript!.remove("test-option"));
 expectType<Promise<void>>(userscript!.clear());
+
+window.addEventListener("userscript-configurer-change", (event) => {
+    expectType<ConfigurerChangeEvent>(event);
+    expectType<string>(event.detail.name);
+    expectType<unknown>(event.detail.oldValue);
+    expectType<string>(event.detail.script);
+    expectType<string | boolean | string[]>(event.detail.value);
+});
