@@ -5,5 +5,37 @@ on:
         types: [released]
 
 jobs:
-    publish:
-        uses: userscripters/shared-actions/.github/workflows/workflow-npm_publish.yml@master
+    publish-gh:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+                  registry-url: "https://registry.npmjs.org"
+                  scope: "@${{github.repository_owner}}"
+            - run: npm install
+            - run: |
+                  npm config set @${{github.repository_owner}}:registry https://npm.pkg.github.com
+                  npm config set //npm.pkg.github.com/:_authToken=$NODE_AUTH_TOKEN
+                  npm publish --access public
+              env:
+                  NODE_AUTH_TOKEN: ${{secrets.PAT}}
+    publish-npm:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+                  registry-url: "https://registry.npmjs.org"
+                  scope: "@${{github.repository_owner}}"
+            - run: npm install
+              env:
+                  NODE_AUTH_TOKEN: ${{github.token}}
+            - run: |
+                  npm config set @${{github.repository_owner}}:registry https://registry.npmjs.org
+                  npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
+                  npm publish --access public
+              env:
+                  NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
